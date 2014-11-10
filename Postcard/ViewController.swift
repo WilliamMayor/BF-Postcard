@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var sendPostcardButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +25,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func sendPostcardButtonPressed(sender: UIButton) {
+        messageLabel.text = messageTextField.text
+        messageLabel.hidden = false
+        messageLabel.textColor = UIColor.redColor()
+        
+        sendPostcardButton.setTitle(
+            "Postcard Sent!", forState: UIControlState.Normal)
+        
+        messageTextField.text = ""
+        messageTextField.resignFirstResponder()
+    }
 
 }
 
