@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendPostcardButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,26 @@ class ViewController: UIViewController {
         messageLabel.hidden = false
         messageLabel.textColor = UIColor.redColor()
         
+        nameLabel.text = nameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+        nameLabel.hidden = false
+        
         sendPostcardButton.setTitle(
             "Postcard Sent!", forState: UIControlState.Normal)
         
         messageTextField.text = ""
         messageTextField.resignFirstResponder()
+        
+        nameTextField.text = ""
+        nameTextField.resignFirstResponder()
+    }
+    @IBAction func nameTextFieldBeginEdit(sender: UITextField) {
+        sendPostcardButton.setTitle(
+            "Send Postcard", forState: UIControlState.Normal)
+    }
+    @IBAction func messageTextFieldBeginEdit(sender: UITextField) {
+        sendPostcardButton.setTitle(
+            "Send Postcard", forState: UIControlState.Normal)
     }
 
 }
